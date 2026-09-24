@@ -3,7 +3,7 @@ import type { SiteSettings } from "@/types/site-settings";
 
 export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   hero: {
-    eyebrow: brand.location.line,
+    eyebrow: "Turismo Comunitario",
     title: `DESCUBRÍ ${brand.location.city.toUpperCase()} CON ${brand.shortName.toUpperCase()}`,
     subtitle: "VIAJES Y TURISMO",
     ctaPrimaryLabel: "Ver excursiones",

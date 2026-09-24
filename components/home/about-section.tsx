@@ -1,5 +1,6 @@
 import { Eye, Heart, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { SectionBrushEdge } from "@/components/home/section-brush-edge";
 import type { SiteSettings } from "@/types/site-settings";
 
 const VALUE_ICONS = [Target, Eye, Heart];
@@ -10,7 +11,8 @@ type AboutSectionProps = {
 
 export function AboutSection({ about }: AboutSectionProps) {
   return (
-    <section id="sobre-nosotros" className="scroll-mt-24 bg-brand-sand py-20">
+    <section id="sobre-nosotros" className="relative scroll-mt-24 bg-brand-sand py-20">
+      <SectionBrushEdge className="text-brand-sand" flip />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl text-brand-charcoal">{about.title}</h2>

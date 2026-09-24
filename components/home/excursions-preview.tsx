@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getHomeFeaturedServices } from "@/features/excursions/lib/get-services";
 import { Button } from "@/components/ui/button";
 import { ExcursionCard } from "@/features/excursions/components/excursion-card";
+import { SectionBrushEdge } from "@/components/home/section-brush-edge";
 import type { SiteSettings } from "@/types/site-settings";
 
 type ExcursionsPreviewProps = {
@@ -12,7 +13,8 @@ export async function ExcursionsPreview({ section }: ExcursionsPreviewProps) {
   const preview = await getHomeFeaturedServices(6);
 
   return (
-    <section id="excursiones" className="scroll-mt-24 bg-white py-20">
+    <section id="excursiones" className="relative scroll-mt-24 bg-white py-20">
+      <SectionBrushEdge className="text-white" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl text-brand-charcoal">{section.title}</h2>

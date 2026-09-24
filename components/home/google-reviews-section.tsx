@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { SectionBrushEdge } from "@/components/home/section-brush-edge";
 import type { GoogleReviewsCache } from "@/types/catalog";
 
 type Props = {
@@ -10,7 +11,8 @@ export function GoogleReviewsSection({ title, cache }: Props) {
   if (!cache || cache.reviews.length === 0) return null;
 
   return (
-    <section id="reseñas" className="bg-brand-ice/40 py-16 sm:py-20" aria-labelledby="reviews-heading">
+    <section id="reseñas" className="relative bg-brand-ice/40 py-16 sm:py-20" aria-labelledby="reviews-heading">
+      <SectionBrushEdge className="text-brand-ice/40" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <h2 id="reviews-heading" className="text-3xl text-brand-charcoal">

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getHomeFeaturedPackages } from "@/features/packages/lib/get-packages";
 import { Button } from "@/components/ui/button";
 import { PackageCard } from "@/features/packages/components/package-card";
+import { SectionBrushEdge } from "@/components/home/section-brush-edge";
 import type { SiteSettings } from "@/types/site-settings";
 
 type Props = {
@@ -13,7 +14,8 @@ export async function PackagesPreview({ section }: Props) {
   if (preview.length === 0) return null;
 
   return (
-    <section id="paquetes" className="scroll-mt-24 bg-brand-sand/60 py-20">
+    <section id="paquetes" className="relative scroll-mt-24 bg-brand-sand/60 py-20">
+      <SectionBrushEdge className="text-brand-sand/60" flip />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl text-brand-charcoal">{section.title}</h2>

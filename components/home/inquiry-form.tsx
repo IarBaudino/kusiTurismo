@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, AlertCircle } from "lucide-react";
+import { SectionBrushEdge } from "@/components/home/section-brush-edge";
 import type { SiteSettings } from "@/types/site-settings";
 
 type InquiryFormProps = {
@@ -92,7 +93,8 @@ export function InquiryForm({ inquiry }: InquiryFormProps) {
   }
 
   return (
-    <section id="consulta" className="scroll-mt-24 bg-brand-surface py-20">
+    <section id="consulta" className="relative scroll-mt-24 bg-brand-surface py-20">
+      <SectionBrushEdge className="text-brand-surface" flip />
       <div className="mx-auto max-w-2xl px-4 sm:px-6">
         <div className="text-center">
           <h2 className="text-3xl text-brand-charcoal">{inquiry.title}</h2>

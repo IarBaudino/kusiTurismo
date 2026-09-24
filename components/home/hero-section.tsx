@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { SiteSettings } from "@/types/site-settings";
 import { HeroCarouselBackground } from "@/components/home/hero-carousel-background";
@@ -105,19 +104,6 @@ export function HeroSection({ hero }: HeroSectionProps) {
           </Link>
         </motion.div>
       </div>
-
-      <a
-        href="#excursiones"
-        className={cn(
-          "absolute bottom-8 left-1/2 -translate-x-1/2 transition-colors",
-          onPhoto
-            ? "text-brand-sand/75 hover:text-brand-sand"
-            : "text-brand-muted hover:text-brand-charcoal"
-        )}
-        aria-label="Ir a excursiones"
-      >
-        <ChevronDown className="h-8 w-8 animate-bounce" />
-      </a>
     </section>
   );
 }
