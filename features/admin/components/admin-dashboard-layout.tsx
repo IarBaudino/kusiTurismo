@@ -20,8 +20,8 @@ export function AdminDashboardLayout({ email, preview, children }: AdminDashboar
     >
       {preview ? (
         <p className="mb-6 rounded-lg border border-brand-border bg-brand-ice px-4 py-3 text-sm text-brand-charcoal">
-          Vista previa local: Firebase todavía no está configurado. Podés recorrer el panel; guardar
-          o subir archivos no va a persistir.
+          Vista previa: Firebase todavía no está configurado. Podés recorrer el panel; guardar o
+          subir archivos no va a persistir.
         </p>
       ) : null}
       {children}

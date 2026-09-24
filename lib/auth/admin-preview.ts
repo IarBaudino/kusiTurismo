@@ -8,9 +8,9 @@ function hasFirebaseAdminEnv(): boolean {
   );
 }
 
-/** En `next dev`, si todavía no hay Firebase, se puede recorrer el UI de /admin. */
+/** Si todavía no hay Firebase, /admin se abre sin login (local y Vercel). */
 export function isAdminUiPreview(): boolean {
-  return process.env.NODE_ENV === "development" && !hasFirebaseAdminEnv();
+  return !hasFirebaseAdminEnv();
 }
 
 export const PREVIEW_ADMIN_USER = {
