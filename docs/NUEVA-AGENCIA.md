@@ -34,7 +34,7 @@ Copiá este repo por cada cliente. Es una plantilla (catálogo, reservas, admin)
 
 7. **Contenido** en `/admin/contenido`: hero, sobre nosotros, footer, Instagram, reseñas Google.
 8. **Catálogo** en `/admin/excursiones` y `/admin/paquetes`. El seed de `scripts/data` es solo un ejemplo; no lo uses en un cliente real.
-9. **Deploy en Vercel** con las mismas variables. Webhook Getnet: `https://DOMINIO/api/payments/getnet/webhook`
+9. **Deploy en Vercel** con las mismas variables. Webhook Mercado Pago: `https://DOMINIO/api/payments/mercadopago/webhook`
 
 ## Qué se edita en código vs admin
 

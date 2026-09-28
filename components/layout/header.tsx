@@ -13,17 +13,27 @@ const navLinks = [
   { href: "/excursiones", label: "Excursiones" },
   { href: "/paquetes", label: "Paquetes" },
   { href: "/viajes-grupales", label: "Viajes grupales" },
-  { href: "/#sobre-nosotros", label: "Sobre Nosotros" },
+  { href: "/#sobre-nosotros", label: "Quiénes somos" },
   { href: "/#consulta", label: "Contacto" },
 ];
 
-export function Header() {
+type HeaderProps = {
+  agencyName: string;
+};
+
+export function Header({ agencyName }: HeaderProps) {
   const { mobileMenuOpen, setMobileMenuOpen, toggleMobileMenu } = useUiStore();
 
   return (
     <header className="sticky top-0 z-50 border-b border-brand-border/80 bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <BrandLogo href="/" size="md" priority onClick={() => setMobileMenuOpen(false)} />
+        <BrandLogo
+          href="/"
+          size="md"
+          alt={agencyName}
+          priority
+          onClick={() => setMobileMenuOpen(false)}
+        />
 
         <nav className="hidden items-center gap-5 lg:gap-6 md:flex" aria-label="Principal">
           {navLinks.map((link) => (

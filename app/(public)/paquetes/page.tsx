@@ -28,7 +28,7 @@ export default async function PackagesPage() {
       <header className="max-w-2xl">
         <h1 className="text-3xl text-brand-charcoal">Paquetes</h1>
         <p className="mt-3 text-brand-muted">
-          Combinaciones de excursiones con precio especial. Reservá el pack completo.
+          Estadías para convivir con familias anfitrionas, con calidez y respeto por sus costumbres.
         </p>
       </header>
 

@@ -27,8 +27,8 @@ export default async function GroupTripsPage() {
       <header className="max-w-2xl">
         <h1 className="text-3xl text-brand-charcoal">Viajes grupales</h1>
         <p className="mt-3 text-brand-muted">
-          Experiencias de varios días con fechas fijas, relato e itinerario. Independientes de las
-          excursiones que se venden por separado.
+          Ediciones con fechas fijas para recorrer el territorio juntas y compartir la vida cotidiana
+          de las comunidades.
         </p>
       </header>
 

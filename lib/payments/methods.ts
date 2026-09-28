@@ -11,6 +11,5 @@ export function getMercadoPagoAccessToken() {
 export function paymentMethodLabel(method?: string | null) {
   if (method === "mercadopago") return "Mercado Pago";
   if (method === "transfer" || method === "coordinar") return "Transferencia";
-  if (method === "getnet") return "Getnet";
   return method?.trim() || "—";
 }

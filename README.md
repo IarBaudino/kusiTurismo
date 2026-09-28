@@ -87,4 +87,4 @@ schemas/          → Validación Zod
 3. `FIREBASE_ADMIN_PRIVATE_KEY`: pegar con `\n` para saltos de línea
 4. Desplegar reglas Firestore desde Firebase Console
 
-Webhook Getnet (producción): `https://TU_DOMINIO/api/payments/getnet/webhook`
+Webhook Mercado Pago (producción): `https://TU_DOMINIO/api/payments/mercadopago/webhook`

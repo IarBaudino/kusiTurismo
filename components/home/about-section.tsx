@@ -1,9 +1,9 @@
-import { Eye, Heart, Target } from "lucide-react";
+import { Heart, Leaf, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionBrushEdge } from "@/components/home/section-brush-edge";
 import type { SiteSettings } from "@/types/site-settings";
 
-const VALUE_ICONS = [Target, Eye, Heart];
+const VALUE_ICONS = [Leaf, Users, Heart];
 
 type AboutSectionProps = {
   about: SiteSettings["about"];
@@ -23,7 +23,7 @@ export function AboutSection({ about }: AboutSectionProps) {
 
         <div className="mt-12 grid gap-8 md:grid-cols-3">
           {about.values.map(({ title, text }, index) => {
-            const Icon = VALUE_ICONS[index] ?? Target;
+            const Icon = VALUE_ICONS[index] ?? Leaf;
             return (
               <Card key={title} className="transition-shadow hover:shadow-[var(--shadow-elevated)]">
                 <CardContent className="pt-8">

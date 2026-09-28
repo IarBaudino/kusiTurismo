@@ -7,13 +7,13 @@ import { ExcursionCatalog } from "@/features/excursions/components/excursion-cat
 
 export const metadata: Metadata = {
   title: "Excursiones",
-  description: `Catálogo de excursiones en ${brand.location.city} y ${brand.location.region}. Reservá online con ${brand.agencyName}.`,
+  description: `Experiencias de turismo comunitario en el ${brand.location.city}. Encuentros con comunidades, no solo un recorrido.`,
   alternates: {
     canonical: `${getAppUrl()}/excursiones`,
   },
   openGraph: {
-    title: `Excursiones en ${brand.location.city} | ${brand.agencyName}`,
-    description: `Trekking, navegación y experiencias en ${brand.location.city}. Filtrá y reservá online.`,
+    title: `Experiencias | ${brand.agencyName}`,
+    description: `Turismo comunitario en el ${brand.location.city}: convivir, aprender y compartir la vida cotidiana.`,
   },
 };
 
@@ -24,10 +24,10 @@ export default async function ExcursionsPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <h1 className="text-3xl text-brand-charcoal">Nuestras Excursiones</h1>
+      <h1 className="text-3xl text-brand-charcoal">Nuestras experiencias</h1>
       <p className="mt-4 max-w-2xl text-brand-muted">
-        Experiencias en {brand.location.city}. Filtrá por categoría o precio. Tarifa adulto; menores,
-        infantes y jubilados pueden tener descuento según cada excursión.
+        Encuentros en comunidades del {brand.location.city}. El viajero es invitado, no espectador.
+        Filtrá por destino, duración, fecha, categoría o precio.
       </p>
 
       {services.length === 0 ? (

@@ -28,7 +28,7 @@ const footerLinks = [
   { href: "/excursiones", label: "Excursiones" },
   { href: "/paquetes", label: "Paquetes" },
   { href: "/viajes-grupales", label: "Viajes grupales" },
-  { href: "/#sobre-nosotros", label: "Sobre Nosotros" },
+  { href: "/#sobre-nosotros", label: "Quiénes somos" },
   { href: "/#consulta", label: "Consultas" },
   { href: "/admin", label: "Administración" },
 ];

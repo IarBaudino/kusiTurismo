@@ -1,15 +1,14 @@
 /**
- * Identidad de la agencia. Cada cliente se configura con NEXT_PUBLIC_BRAND_*.
- * Los fallbacks son placeholders de plantilla, no de un cliente real.
+ * Identidad de Kusi. Se puede overridear con NEXT_PUBLIC_BRAND_*.
+ * Las claves de env van literales para que Next las inline igual en server y client.
  */
-function env(name: string): string | undefined {
-  const value = process.env[name]?.trim();
-  return value || undefined;
+function trimEnv(value: string | undefined): string | undefined {
+  const trimmed = value?.trim();
+  return trimmed || undefined;
 }
 
-function csv(name: string, fallback: string[]): string[] {
-  const raw = env(name);
-  if (!raw) return fallback;
+function csv(raw: string | undefined, fallback: string[]): string[] {
+  if (!raw?.trim()) return fallback;
   return raw
     .split(",")
     .map((item) => item.trim())
@@ -17,78 +16,87 @@ function csv(name: string, fallback: string[]): string[] {
 }
 
 export function getAppUrl(): string {
-  return (env("NEXT_PUBLIC_APP_URL") ?? "http://localhost:3000").replace(/\/$/, "");
+  return (trimEnv(process.env.NEXT_PUBLIC_APP_URL) ?? "http://localhost:3000").replace(
+    /\/$/,
+    ""
+  );
 }
 
-const agencyName = env("NEXT_PUBLIC_BRAND_NAME") ?? "Kusi Turismo";
-const shortName = env("NEXT_PUBLIC_BRAND_SHORT_NAME") ?? "Kusi";
-const city = env("NEXT_PUBLIC_BRAND_CITY") ?? "Tu ciudad";
-const region = env("NEXT_PUBLIC_BRAND_REGION") ?? "Tu provincia";
-const country = env("NEXT_PUBLIC_BRAND_COUNTRY") ?? "Argentina";
-const countryCode = env("NEXT_PUBLIC_BRAND_COUNTRY_CODE") ?? "AR";
-const slug = env("NEXT_PUBLIC_BRAND_SLUG") ?? "kusi";
+const agencyName = trimEnv(process.env.NEXT_PUBLIC_BRAND_NAME) ?? "Kusi Experiencias";
+const shortName = trimEnv(process.env.NEXT_PUBLIC_BRAND_SHORT_NAME) ?? "Kusi";
+const city = trimEnv(process.env.NEXT_PUBLIC_BRAND_CITY) ?? "Norte argentino";
+const region = trimEnv(process.env.NEXT_PUBLIC_BRAND_REGION) ?? "Argentina";
+const country = trimEnv(process.env.NEXT_PUBLIC_BRAND_COUNTRY) ?? "Argentina";
+const countryCode = trimEnv(process.env.NEXT_PUBLIC_BRAND_COUNTRY_CODE) ?? "AR";
+const slug = trimEnv(process.env.NEXT_PUBLIC_BRAND_SLUG) ?? "kusi";
 
 export const brand = {
   agencyName,
   shortName,
   slug,
   logo: {
-    src: env("NEXT_PUBLIC_BRAND_LOGO_SRC") ?? "/logoKusi.png",
-    width: Number(env("NEXT_PUBLIC_BRAND_LOGO_WIDTH") ?? "381"),
-    height: Number(env("NEXT_PUBLIC_BRAND_LOGO_HEIGHT") ?? "430"),
+    src: trimEnv(process.env.NEXT_PUBLIC_BRAND_LOGO_SRC) ?? "/logoKusi.png",
+    width: Number(trimEnv(process.env.NEXT_PUBLIC_BRAND_LOGO_WIDTH) ?? "381"),
+    height: Number(trimEnv(process.env.NEXT_PUBLIC_BRAND_LOGO_HEIGHT) ?? "430"),
   },
-  locale: env("NEXT_PUBLIC_BRAND_LOCALE") ?? "es_AR",
-  htmlLang: env("NEXT_PUBLIC_BRAND_HTML_LANG") ?? "es",
-  currency: env("NEXT_PUBLIC_BRAND_CURRENCY") ?? "ARS",
-  countryCallingCode: env("NEXT_PUBLIC_BRAND_CALLING_CODE") ?? "54",
-  whatsappNumber: env("NEXT_PUBLIC_WHATSAPP_NUMBER") ?? "",
-  email: env("NEXT_PUBLIC_BRAND_EMAIL") ?? "info@kusiturismo.com",
-  phoneLabel: env("NEXT_PUBLIC_BRAND_PHONE_LABEL") ?? "Teléfono",
-  phoneDigits: env("NEXT_PUBLIC_BRAND_PHONE_DIGITS") ?? "",
+  locale: trimEnv(process.env.NEXT_PUBLIC_BRAND_LOCALE) ?? "es_AR",
+  htmlLang: trimEnv(process.env.NEXT_PUBLIC_BRAND_HTML_LANG) ?? "es",
+  currency: trimEnv(process.env.NEXT_PUBLIC_BRAND_CURRENCY) ?? "ARS",
+  countryCallingCode: trimEnv(process.env.NEXT_PUBLIC_BRAND_CALLING_CODE) ?? "54",
+  whatsappNumber: trimEnv(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER) ?? "",
+  email: trimEnv(process.env.NEXT_PUBLIC_BRAND_EMAIL) ?? "info@kusiturismo.com",
+  phoneLabel: trimEnv(process.env.NEXT_PUBLIC_BRAND_PHONE_LABEL) ?? "Teléfono",
+  phoneDigits: trimEnv(process.env.NEXT_PUBLIC_BRAND_PHONE_DIGITS) ?? "",
   location: {
     city,
     region,
     country,
     countryCode,
-    address: env("NEXT_PUBLIC_BRAND_ADDRESS") ?? `${city}, ${region}, ${country}`,
-    line: env("NEXT_PUBLIC_BRAND_LOCATION_LINE") ?? `${city} · ${region}`,
+    address:
+      trimEnv(process.env.NEXT_PUBLIC_BRAND_ADDRESS) ?? `${city}, ${region}, ${country}`,
+    line: trimEnv(process.env.NEXT_PUBLIC_BRAND_LOCATION_LINE) ?? `${city} · ${region}`,
   },
   social: {
-    instagramUrl: env("NEXT_PUBLIC_INSTAGRAM_URL") ?? "",
-    instagramHandle: env("NEXT_PUBLIC_INSTAGRAM_HANDLE") ?? "",
+    instagramUrl: trimEnv(process.env.NEXT_PUBLIC_INSTAGRAM_URL) ?? "",
+    instagramHandle: trimEnv(process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE) ?? "",
   },
   seo: {
     titleDefault:
-      env("NEXT_PUBLIC_SEO_TITLE") ?? `${agencyName} | Excursiones en ${city}`,
-    titleTemplate: env("NEXT_PUBLIC_SEO_TITLE_TEMPLATE") ?? `%s | ${agencyName}`,
+      trimEnv(process.env.NEXT_PUBLIC_SEO_TITLE) ??
+      `${agencyName} | Turismo comunitario en el ${city}`,
+    titleTemplate:
+      trimEnv(process.env.NEXT_PUBLIC_SEO_TITLE_TEMPLATE) ?? `%s | ${agencyName}`,
     description:
-      env("NEXT_PUBLIC_SEO_DESCRIPTION") ??
-      `Excursiones, navegaciones y paquetes en ${city}, ${region}. Reservá online con ${agencyName}.`,
-    keywords: csv("NEXT_PUBLIC_SEO_KEYWORDS", [
-      `excursiones ${city}`,
-      `turismo ${region}`,
+      trimEnv(process.env.NEXT_PUBLIC_SEO_DESCRIPTION) ??
+      `Kusi significa alegría en quechua. Turismo comunitario: encuentros reales con comunidades indígenas, campesinas y locales del ${city}.`,
+    keywords: csv(process.env.NEXT_PUBLIC_SEO_KEYWORDS, [
+      "turismo comunitario",
+      "Kusi",
+      `experiencias ${city}`,
+      "comunidades",
       shortName,
-      `paquetes ${city}`,
     ]),
   },
   theme: {
-    primary: env("NEXT_PUBLIC_THEME_PRIMARY") ?? "#203d6c",
-    primaryDark: env("NEXT_PUBLIC_THEME_PRIMARY_DARK") ?? "#203d6c",
-    secondary: env("NEXT_PUBLIC_THEME_SECONDARY") ?? "#48638f",
-    secondaryHover: env("NEXT_PUBLIC_THEME_SECONDARY_HOVER") ?? "#48638f",
-    charcoal: env("NEXT_PUBLIC_THEME_CHARCOAL") ?? "#203d6c",
-    charcoalMuted: env("NEXT_PUBLIC_THEME_CHARCOAL_MUTED") ?? "#48638f",
-    sand: env("NEXT_PUBLIC_THEME_SAND") ?? "#d0c1a9",
-    ice: env("NEXT_PUBLIC_THEME_ICE") ?? "#ebe3d6",
-    surface: env("NEXT_PUBLIC_THEME_SURFACE") ?? "#faf6f0",
-    border: env("NEXT_PUBLIC_THEME_BORDER") ?? "#c5b7a0",
+    primary: trimEnv(process.env.NEXT_PUBLIC_THEME_PRIMARY) ?? "#203d6c",
+    primaryDark: trimEnv(process.env.NEXT_PUBLIC_THEME_PRIMARY_DARK) ?? "#203d6c",
+    secondary: trimEnv(process.env.NEXT_PUBLIC_THEME_SECONDARY) ?? "#48638f",
+    secondaryHover: trimEnv(process.env.NEXT_PUBLIC_THEME_SECONDARY_HOVER) ?? "#48638f",
+    charcoal: trimEnv(process.env.NEXT_PUBLIC_THEME_CHARCOAL) ?? "#203d6c",
+    charcoalMuted: trimEnv(process.env.NEXT_PUBLIC_THEME_CHARCOAL_MUTED) ?? "#48638f",
+    sand: trimEnv(process.env.NEXT_PUBLIC_THEME_SAND) ?? "#d0c1a9",
+    ice: trimEnv(process.env.NEXT_PUBLIC_THEME_ICE) ?? "#ebe3d6",
+    surface: trimEnv(process.env.NEXT_PUBLIC_THEME_SURFACE) ?? "#faf6f0",
+    border: trimEnv(process.env.NEXT_PUBLIC_THEME_BORDER) ?? "#c5b7a0",
   },
   developerCredit: {
-    enabled: env("NEXT_PUBLIC_DEVELOPER_CREDIT") !== "false",
-    name: env("NEXT_PUBLIC_DEVELOPER_NAME") ?? "Iara Baudino",
-    url: env("NEXT_PUBLIC_DEVELOPER_URL") ?? "https://www.iarabaudinodev.com.ar",
+    enabled: process.env.NEXT_PUBLIC_DEVELOPER_CREDIT !== "false",
+    name: trimEnv(process.env.NEXT_PUBLIC_DEVELOPER_NAME) ?? "Iara Baudino",
+    url:
+      trimEnv(process.env.NEXT_PUBLIC_DEVELOPER_URL) ??
+      "https://www.iarabaudinodev.com.ar",
   },
-  cartStorageKey: env("NEXT_PUBLIC_CART_STORAGE_KEY") ?? `${slug}-cart-v10`,
+  cartStorageKey: trimEnv(process.env.NEXT_PUBLIC_CART_STORAGE_KEY) ?? `${slug}-cart-v10`,
 } as const;
 
 export function brandLogoAlt(): string {

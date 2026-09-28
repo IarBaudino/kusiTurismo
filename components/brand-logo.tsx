@@ -9,6 +9,7 @@ type BrandLogoProps = {
   /** `null` = sin link */
   href?: string | null;
   className?: string;
+  alt?: string;
   /** sm header compacto · md nav · lg auth · xl hero/auth destacado */
   size?: "sm" | "md" | "lg" | "xl";
   priority?: boolean;
@@ -25,11 +26,12 @@ const sizeClass: Record<NonNullable<BrandLogoProps["size"]>, string> = {
 export function BrandLogo({
   href = "/",
   className,
+  alt: altProp,
   size = "md",
   priority = false,
   onClick,
 }: BrandLogoProps) {
-  const alt = brandLogoAlt();
+  const alt = altProp ?? brandLogoAlt();
   const image = (
     <Image
       src={brand.logo.src}

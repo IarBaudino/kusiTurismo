@@ -4,9 +4,10 @@ import type { SiteSettings } from "@/types/site-settings";
 export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   hero: {
     eyebrow: "Turismo Comunitario",
-    title: `DESCUBRÍ ${brand.location.city.toUpperCase()} CON ${brand.shortName.toUpperCase()}`,
-    subtitle: "VIAJES Y TURISMO",
-    ctaPrimaryLabel: "Ver excursiones",
+    title: "Kusi significa alegría",
+    subtitle:
+      "Unimos viajeros con comunidades indígenas, campesinas y locales de cada territorio.",
+    ctaPrimaryLabel: "Ver experiencias",
     ctaPrimaryHref: "/#excursiones",
     ctaSecondaryLabel: "Consultanos",
     ctaSecondaryHref: "/#consulta",
@@ -14,45 +15,50 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
     backgroundMedia: [],
   },
   excursionsPreview: {
-    title: "Nuestras Excursiones",
-    description: `Descubrí experiencias en ${brand.location.city} y ${brand.location.region}. Todas las excursiones se publican desde nuestro catálogo oficial.`,
+    title: "Nuestras experiencias",
+    description:
+      "El viajero no solo observa: convive, aprende saberes ancestrales y comparte la vida cotidiana. El objetivo es sumergirse en la cultura, no solo pasar por el lugar.",
   },
   packagesPreview: {
-    title: "Nuestros Paquetes",
+    title: "Nuestros paquetes",
     description:
-      "Combinaciones pensadas para aprovechar mejor tu estadía. Armamos el itinerario según tus fechas.",
+      "Estadías para convivir con familias anfitrionas, con calidez, cuidado y respeto por sus tiempos y costumbres.",
   },
   groupTripsPreview: {
     title: "Viajes grupales",
     description:
-      "Ediciones con fechas fijas, itinerario día por día y seña para confirmar tu lugar.",
+      "Ediciones con fechas fijas para recorrer el territorio juntas y compartir la vida cotidiana de las comunidades.",
   },
   about: {
-    title: "Sobre Nosotros",
-    quote: `Descubrí ${brand.location.city} con nosotros`,
+    title: "Quiénes somos",
+    quote:
+      "El turismo comunitario no es solo una forma de viajar: es una herramienta de transformación social real.",
     values: [
       {
-        title: "Nuestra Misión",
-        text: `Crear experiencias únicas y memorables en ${brand.location.city}, conectando a los viajeros con la naturaleza y la cultura local de manera sostenible.`,
+        title: "Preservación",
+        text: "Valoramos la sabiduría tradicional y protegemos los recursos naturales de cada ecosistema local. Las familias anfitrionas cuidan la tierra que las sostiene.",
       },
       {
-        title: "Nuestra Visión",
-        text: `Ser la referencia en turismo en ${brand.location.region}, ofreciendo las mejores excursiones y experiencias para nuestros visitantes.`,
+        title: "Comunidad",
+        text: "Las propias familias gestionan la acogida y la planificación. Los recursos se quedan en la localidad e impulsan desarrollo y calidad de vida.",
       },
       {
-        title: "Nuestros Valores",
-        text: "Compromiso con la excelencia, respeto por la naturaleza y pasión por brindar experiencias auténticas y seguras.",
+        title: "Autenticidad",
+        text: "Creamos intercambios culturales genuinos. El viajero es invitado, no espectador. Nada se hace sin permiso de la comunidad.",
       },
     ],
-    closingText: `En ${brand.agencyName} nos dedicamos a hacer realidad tus sueños de viaje. Con un equipo apasionado, te garantizamos experiencias únicas y seguras en ${brand.location.city} y ${brand.location.region}.`,
+    closingText:
+      "Kusi nace de unir viajeros con ganas de experiencias reales y comunidades indígenas, campesinas y locales. En cada encuentro hay calidez, cuidado y respeto absoluto por los tiempos y las costumbres de quienes reciben.",
   },
   inquiry: {
-    title: "¿Tienes alguna consulta?",
-    subtitle: "Estamos aquí para ayudarte a planificar tu próxima aventura",
+    title: "¿Viajamos en modo Kusi?",
+    subtitle:
+      "Contanos qué estás buscando y te proponemos un encuentro real, con respeto y calidez.",
   },
   footer: {
     brandName: brand.agencyName,
-    tagline: `Excursiones y experiencias únicas en ${brand.location.city}, ${brand.location.region}.`,
+    tagline:
+      "Kusi significa alegría. Turismo comunitario que se queda en la comunidad.",
     address: brand.location.address,
     email: brand.email,
     phoneLabel: brand.phoneLabel,
